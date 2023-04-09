@@ -1,8 +1,11 @@
-export default function Title()
+import styles from './Title.module.css';
+
+export default function Title({title,subtitle})
 {
     return (
-        <div>
-            <h1>Welcome to my To Do App</h1>
+        <div className={styles.Title}>
+            <h1>{title}</h1>
+            <p>{subtitle}</p>
         </div>
     )
 }

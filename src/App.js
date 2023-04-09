@@ -1,5 +1,10 @@
+import React from 'react';
 import { useState } from 'react';
 import Title from "./components/Title" 
+import Header from "./components/header"
+import Footer from "./components/footer"
+import {Modal} from "./components/modal"
+import { NewEventForm } from './components/NewEventForm'
 
 function App() {
   const [showTodos,setShowTodos]=useState(true);
@@ -18,33 +23,40 @@ function App() {
     }))
     console.log(id);
   }
-
+let subtitle="I AM A GOOD CODER " 
+let title = "HI I AM KEVIN "
 
   return (
-    <div>
-      <Title />
-      {showTodos && 
-        <div>
+    <>
+    <h1 style={{textAlign:"center",border:"2px solid red",backgroundColor: showTodos ? "Red":"green"}}>Using Dynamic Styles</h1>
+      <Header />
+      <Title title={title} subtitle={subtitle}/>
+      {showTodos &&       
+        <>
           <button onClick={()=>setShowTodos(false)}>Hide Todo</button>
-        </div>
+        </>
       }
       {!showTodos &&
-        <div>
+        <>
           <button onClick={()=>setShowTodos(true)}>Show Todo</button>
-        </div>
+         </>
       }
-      <div>
+      <>
         {
           showTodos && 
           todo.map((item)=>(
-            <div key={item.id}>
+            <React.Fragment key={item.id}>
               <h2>{item.title}</h2>
               <button onClick={()=>handleClick(item.id)}>Delete</button>
-            </div>
+            </React.Fragment>
           ))
         }
-      </div>
-    </div>
+        <Modal>
+        <NewEventForm /> 
+        </Modal>
+        <Footer />
+      </>
+    </>
   );
 }
 

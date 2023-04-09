@@ -1,0 +1,9 @@
+.forms label, .forms input
+{
+    display: block;
+    text-align: left;
+    margin: 10px auto;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+}
